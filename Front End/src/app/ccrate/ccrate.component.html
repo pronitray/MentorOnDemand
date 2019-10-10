@@ -1,0 +1,95 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Commission Rate</title>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .slidecontainer {
+            width: 100%;
+            }
+
+            .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 25px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            }
+
+            .slider:hover {
+            opacity: 1;
+            }
+
+            .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+            }
+
+            .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+            }
+    </style>
+  </head>
+  <body class="text-center">
+    <form style="margin: auto" class="form-signin">
+        <h1 class="h3 mb-3 font-weight-normal" style="font-family: 'Permanent Marker', cursive;">Change Commission Rate</h1>
+        
+        <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="21" class="slider" id="myRange" oninput="myRangeop.value = myRange.value">
+                <strong><p>Rate: <output id="myRangeop"> <span id="demo"></span>21</output>%</p></strong>
+                <button class="btn btn-success">&#10003; Apply</button> |
+                <button class="btn btn-danger">&#10005; Cancel</button>
+        </div>
+
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+          <a class="navbar-brand" href="#" style="font-family: 'Permanent Marker', cursive;">Mentor On Demand</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/signin'>Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/addblock'>Add/Block</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/etech'>Edit Technologies</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/eskills'>Edit Skills</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/ccrate'>Change Commission Rates</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </form>
+</body>

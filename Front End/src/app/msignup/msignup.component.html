@@ -1,0 +1,78 @@
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup</title>
+        <style>
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+    
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+    
+          }
+        </style>
+      </head>
+      <body class="text-center" ng-app="">
+        <form class="form-signin" name="msignin">
+            <h1 class="h3 mb-3 font-weight-normal" style="font-family: 'Permanent Marker', cursive;">Sign Up</h1>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+              <a class="navbar-brand" href="#" style="font-family: 'Permanent Marker', cursive;">Mentor On Demand</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            
+              <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/signin'>Sign In</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" href="#">Search Trainings</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link active dropdown-toggle" style="font-family: 'Josefin Sans', sans-serif;" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+                      <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="nav-item active dropdown-item" style="font-family: 'Josefin Sans', sans-serif;" (click)="mreload()" routerLink='/msignup'>Mentor</a>
+                        <a class="dropdown-item" style="font-family: 'Josefin Sans', sans-serif;" (click)="reload()" routerLink='/signup'>User</a>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </nav>
+            <select class="form-control" id="role" name="role" [(ngModel)]="mentor.role" required autofocus>
+                <option [ngValue]="undefined" disabled  selected>Choose Role...</option>
+                <option value="MENTOR" [ngValue]="MENTOR">Mentor</option>
+                <option value="USER" [ngValue]="USER" disabled>User</option>
+            </select><br>
+            <input [(ngModel)]="mentor.startingDate" name="startingDate" placeholder="Starting Date" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="sdate"><br>
+            <input [(ngModel)]="mentor.endingDate" name="endingDate" placeholder="Ending Date" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="edate"><br>
+            <input [(ngModel)]="mentor.technologies" name="technologies" ng-model="technologies" id="technologies" placeholder="Technologies" class="form-control" type="text" required><span style="color: red" ng-show="msignin.technologies.$touched && msignin.technologies.$invalid">Please Enter Technologies!</span><br>
+            <input [(ngModel)]="mentor.facilities" name="facilities" ng-model="facilities" id="facilities" placeholder="Facilities" class="form-control" type="text" required><span style="color: red" ng-show="msignin.facilities.$touched && msignin.facilities.$invalid">Please Enter Facilities!</span><br>
+            <input pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" [(ngModel)]="mentor.linkedinProfile" name="linkedinProfile" ng-model="linkedinProfile" id="linkedinProfile"  type="text" class="form-control" placeholder="LinkedIn Profile" required><span style="color: red" ng-show="msignin.linkedinProfile.$touched && msignin.linkedinProfile.$invalid">Please Enter LinkedIn Profile!</span><br>
+            <input type="text" pattern="^[A-Za-z -]+$" name="fullName" ng-model="fullName" [(ngModel)]="mentor.fullName" id="fullName" class="form-control" placeholder="Full Name" required><span style="color: red" ng-show="msignin.fullName.$touched && msignin.fullName.$invalid">Please Enter Full Name!</span><br>
+            <select class="form-control" name="gender" [(ngModel)]="mentor.gender" required>
+                <option [ngValue]="undefined" disabled  selected>Gender</option>
+                <option value="Male" [ngValue]="Male">Male</option>
+                <option value="Female" [ngValue]="Female">Female</option>
+                <option value="Unspecified" [ngValue]="Unspecified">Do not want to specify</option>
+            </select><br>
+            <input type="text" maxlength="10" minlength="10" pattern="^[0-9]+$" name="contactNumber" ng-model="contactNumber" id="contactNumber" [(ngModel)]="mentor.contactNumber" class="form-control" placeholder="Mobile Number" required><span style="color: red" ng-show="msignin.contactNumber.$touched && msignin.contactNumber.$invalid">Please Enter a Contact Number!</span><br>
+            <input type="email" name="userName" ng-model="userName" [(ngModel)]="mentor.userName" id="userName" class="form-control" placeholder="Email Address / Username" required><span style="color: red" ng-show="msignin.userName.$touched && msignin.userName.$invalid">Please Enter Username!</span><br>
+            <div class="input-group mb-3">
+            <input #x type="password" name="password" [(ngModel)]="mentor.password" id="inputPassword" class="form-control" placeholder="Password" required><br>
+            <div id="icon" class="input-group-append">
+                <span class="add-on btn btn-info form-control form-signin" style="color: cadetblue" (click)="x.type=x.type=='password'?'text':'password'; y.className=y.className=='fa fa-eye'?'fa fa-eye-slash':'fa fa-eye'"><i #y class="fa fa-eye"></i></span> 
+              </div>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" style="font-style: italic" type="submit" (click)="createMentor()">Sign Up</button>
+            <p class="mt-3 mb-3">Already have an account? <a routerLink='/signin'>Sign In </a> |<a routerLink='/'> Home</a></p>
+            <p class="mt-3 mb-3">&copy; 2019 Pronit Kumar Ray</p>
+        </form>
+    </body>

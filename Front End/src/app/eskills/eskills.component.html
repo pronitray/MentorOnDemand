@@ -1,0 +1,107 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Skills </title>
+
+    
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      #vskill {
+          display: none;
+      }
+
+      #rskill {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="text-center">
+    <form style="margin: auto" class="form-signin">
+        <h1 class="h3 mb-3 font-weight-normal" style="font-family: 'Permanent Marker', cursive;">Manage Skills</h1>
+        <select class="form-control" id="skillchange" onchange="hideShowSkills('vskill', 'askill', 'rskill', this)" required autofocus>
+          <option value=1>Add Skill</option>
+          <!-- <option value=2>Remove Skill</option> -->
+          <option value=3>View Skills</option>
+      </select>
+
+        <div id="vskill" class="table-responsive-xl">
+                <table class="table table-striped table-light table-hover">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Skill</th>
+                            <th scope="col">Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let skill of skills">
+                            <td>{{skill.id}}</td>
+                            <td>{{skill.name}}</td>
+                            <td><button class="btn btn-danger" (click)="deleteSkill(skill)">Remove Skill</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+        </div>
+
+        <div id="askill">
+          <input type="text" [(ngModel)]="skill.name" name="name" class="form-control" placeholder="Technology Domain" required>
+          <!-- <select class="form-control" required>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select> -->
+          <input type="text" [(ngModel)]="skill.prerequisites" name="prerequisites" class="form-control" placeholder="Prerequisites" required>
+          <input type="text" [(ngModel)]="skill.toc" name="toc" class="form-control" placeholder="Table of Contents" required>
+          <br>
+          <button type="submit" (click)="createSkill()" class="btn btn-lg btn-block btn-success">Add Skill</button>
+        </div>
+
+        <!-- <div id="rskill" class="form-control">
+          <strong>Select Skill to be removed</strong><br>
+          <input type="checkbox" id="sbr"><label for="sbr">Spring Boot</label><br>
+          <input type="checkbox" id="jsr"><label for="jsr">JavaScript</label><br>
+          <input type="checkbox" id="jqr"><label for="jqr">JQuery</label><br>
+          <button class="btn btn-lg btn-block btn-danger">Remove Skill</button>
+        </div> -->
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+          <a class="navbar-brand" href="#" style="font-family: 'Permanent Marker', cursive;">Mentor On Demand</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/signin'>Logout</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/addblock'>Add/Block</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/etech'>Edit Technologies</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/eskills'>Edit Skills</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/ccrate'>Change Commission Rates</a>
+                  </li>
+            </ul>
+          </div>
+        </nav>
+    </form>
+</body>

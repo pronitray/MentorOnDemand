@@ -1,0 +1,80 @@
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notifications</title>
+        <style>
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+    
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+          }
+        </style>
+      </head>
+      <body class="text-center">
+        <form style="margin: auto">
+                <div class="toast fade show" id="myToast" data-delay="500000">
+                        <div class="toast-header">
+                            <strong>Proposal Update!</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Alfred Pennyworth has requested your mentorship.<hr><button class="btn btn-success">Accept</button><hr><button class="btn btn-danger">Reject</button>
+                        </div>
+                    </div>
+                
+                <div class="toast fade show" id="myToast2" data-delay="500000">
+                        <div class="toast-header">
+                            <strong>Proposal Update!</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                                Dick Grayson has requested your mentorship.<hr><button class="btn btn-success">Accept</button><hr><button class="btn btn-danger">Reject</button>
+                        </div>
+                </div>
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                        <a class="navbar-brand" href="#">Mentor On Demand</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                      
+                        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                          <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Notifications</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" routerLink='/signin'>Logout</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" routerLink='/eskills'>Edit Skills</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" routerLink='/mtprogress'>Current Trainings</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" routerLink='/mtcomplete'>Completed Trainings</a>
+                            </li>
+                            <li class="nav=item">
+                              <a class="nav-link" routerLink='/mpstatus'>Payments</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav>
+        </form>
+          <script>
+                $(document).ready(function(){
+                    $("#myToast").toast('show');
+                });
+                $(document).ready(function(){
+                    $("#myToast2").toast('show');
+                });
+                </script>
+    </body>

@@ -1,0 +1,86 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="text-center">
+    <form style="margin: auto">
+            <div class="toast fade show" id="myToast" data-delay="50">
+                    <div class="toast-header">
+                        <strong>Proposal Update!</strong>
+                        <button type="button" id="closeButton" class="ml-2 mb-1 close" (click)="dismiss()">&times;</button>
+                    </div>
+                    <div class="toast-body">
+                        Alex Richards has accepted your proposal. <a routerLink='/checkout'>Click Here</a> to proceed the Checkout Page!
+                    </div>
+            </div>
+            <h2 id="clearNotif"></h2>
+            
+            <!-- <div class="toast fade show" id="myToast2" data-delay="50">
+                    <div class="toast-header">
+                        <strong>Proposal Update!</strong>
+                        <button type="button" class="ml-2 mb-1 close">&times;</button>
+                    </div>
+                    <div class="toast-body">
+                        Marc Martel has accepted your proposal. <a routerLink='/checkout'>Click Here</a> to proceed the Checkout Page!
+                    </div>
+            </div> -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+          <a class="navbar-brand" (click)="logout()" href="#">Mentor On Demand</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link active" routerLink='/notif'>Notifications</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="logout()" routerLink='/signin'>Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink='/homepage'>Search Trainings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink='/utprogress'>Current Trainings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink='/utcomplete'>Completed Trainings</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search Trainings...</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" href="#">Spring Boot</a>
+                  <a class="dropdown-item" href="#">JavaScript</a>
+                  <a class="dropdown-item" href="#">JQuery</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </form>
+      <script>
+            $(document).ready(function(){
+                $("#myToast").toast('show');
+            });
+            $(document).ready(function(){
+                $("#myToast2").toast('show');
+            });
+            </script>
+</body>

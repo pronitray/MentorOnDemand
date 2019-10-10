@@ -1,0 +1,78 @@
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup</title>
+        <style>
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+    
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+    
+          #mentor {
+            display: none;
+          }
+          }
+        </style>
+      </head>
+      <body class="text-center" ng-app="">
+        <form class="form-signin" name="signin">
+            <h1 class="h3 mb-3 font-weight-normal" style="font-family: 'Permanent Marker', cursive;">Add Training</h1>
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                    <a class="navbar-brand" href="#" style="font-family: 'Permanent Marker', cursive;">Mentor On Demand</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+                    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                          <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/signin'>Logout</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" href="#">Add/Block</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/etech'>Edit Technologies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/eskills'>Edit Skills</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/ccrate'>Change Commission Rates</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" style="font-family: 'Josefin Sans', sans-serif;" routerLink='/addtraining'>Add Training</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+            <input type="text" class="form-control" [(ngModel)]="training.trainingName" name="trainingName" placeholder="Training Name">
+            <input type="text" class="form-control" [(ngModel)]="training.fees" name="trainingFees" placeholder="Fees">
+            <input type="text" class="form-control" [(ngModel)]="training.commisionAmount" name="trainingCommission" placeholder="Commission Amount">
+            <input [(ngModel)]="training.startDate" name="startDate" placeholder="Starting Date" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="sdate">
+            <input [(ngModel)]="training.endDate" name="endDate" placeholder="Ending Date" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="edate">
+            <select class="form-control" [(ngModel)]="training.mentor" name="trainingMentor">
+                <option [ngValue]="undefined" selected disabled>Select Mentor</option>
+                <option *ngFor="let mentor of mentors" [ngValue]="mentor">{{mentor.fullName}}</option>
+            </select>
+            <select class="form-control" [(ngModel)]="training.technology" name="trainingTechnology">
+                <option [ngValue]="undefined" selected disabled>Select Technology</option>
+                <option *ngFor="let tech of technologies" [ngValue]="tech">{{tech.techName}}</option>
+            </select>
+            <select class="form-control" [(ngModel)]="training.skill" name="trainingSkill">
+                    <option [ngValue]="undefined" selected disabled>Select Skill</option>
+                    <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.name}}</option>
+                </select>  
+            <br><button class="btn btn-lg btn-primary btn-block" style="font-style: italic" type="submit" (click)="createTraining(training)">Add Training</button>
+            <!-- <p class="mt-3 mb-3">Already have an account? <a routerLink='/signin'>Sign In </a> |<a routerLink='/'> Home</a></p> -->
+            <p class="mt-3 mb-3">&copy; 2019 Pronit Kumar Ray</p>
+        </form>
+    </body>
